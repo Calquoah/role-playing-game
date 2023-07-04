@@ -389,27 +389,215 @@ Challenge
 ** check out hint.md for extra help! **
 */
 
-function getDiceRollArray(diceCount) {
-   // Setting up the array that it's going to return
-   const newDiceRolls = [] // initialize it to an empty array
+// function getDiceRollArray(diceCount) {
+//    // Setting up the array that it's going to return
+//    const newDiceRolls = [] // initialize it to an empty array
    
-   for (let i = 0; i < diceCount; i++) {
-      newDiceRolls.push(Math.floor( Math.random() * 6) + 1)
-   }
-   return newDiceRolls
+//    for (let i = 0; i < diceCount; i++) {
+//       newDiceRolls.push(Math.floor( Math.random() * 6) + 1)
+//    }
+//    return newDiceRolls
+// }
+
+// // Call function with a diceCount of 3
+// // like this: 
+
+// getDiceRollArray(3)
+   
+// const hero = {
+//    elementId: "hero",
+//    name: "Wizard",
+//    avatar: "img/wizard.png",
+//    health: 60,
+//    diceRoll: [3, 1, 4], 
+//    diceCount: 3
+// }
+
+// const monster = {
+//    elementId: "monster",
+//    name: "Orc",
+//    avatar: "img/orc.png",
+//    health: 10,
+//    diceRoll: [6],
+//    diceCount: 1
+// }
+
+// function renderCharacter(data) {
+//    const { elementId, name, avatar, health, diceRoll, diceCount } = data;
+
+//    const diceHtml = diceRoll.map(function(num){ 
+//        return  `<div class="dice">${num}</div>`
+//    }).join('')
+
+//    document.getElementById(elementId).innerHTML =
+//        `<div class="character-card">
+//            <h4 class="name"> ${name} </h4>
+//            <img class="avatar" src="${avatar}" />
+//            <div class="health">health: <b> ${health} </b></div>
+//            <div class="dice-container">
+//                ${diceHtml}
+//            </div>
+//        </div>`;
+// }
+
+// renderCharacter(hero);
+// renderCharacter(monster);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Render Dice with Random Numbers */
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function getDiceRollArray(diceCount) {
+//    let newDiceRolls = [];
+//    for (let i = 0; i < diceCount; i++) {
+//        newDiceRolls.push(Math.floor(Math.random() * 6) + 1);
+//    }
+//    return newDiceRolls;
+// }
+
+// function getDiceHtml(diceCount) {
+//    return getDiceRollArray(diceCount). map(function(number){
+//       return `<div class="dice">${number}</div>`
+//    }).join('')
+// }
+
+// /*
+// Challenge 
+// 1. Create a function called getDiceHtml. 
+// 2. getDiceHtml should map over the array of dice rolls 
+//   returned from getDiceRollArray to generate the html 
+//   we need to render our dice with random values. This is 
+//   the HTML: `<div class="dice">DICE VALUE HERE</div>`
+// 3. Think about the parameters and arguments!
+// 4. Down in renderCharacter(), set diceHtml equals to our 
+//   new getDiceHtml function. Remember to give it the argument
+//   it needs. 
+// 5. Delete any code we no longer need.
+// **hint.md for help**
+// */
+
+
+// const hero = {
+//    elementId: "hero",
+//    name: "Wizard",
+//    avatar: "img/wizard.png",
+//    health: 60,
+//    diceCount: 3
+// }
+
+// const monster = {
+//    elementId: "monster",
+//    name: "Orc",
+//    avatar: "img/orc.png",
+//    health: 10,
+//    diceCount: 1
+// }
+
+// function renderCharacter(data) {
+//    const { elementId, name, avatar, health, diceCount } = data;
+//    const diceHtml = getDiceHtml(diceCount)
+
+//    document.getElementById(elementId).innerHTML =
+//    `<div class="character-card">
+//        <h4 class="name"> ${name} </h4>
+//        <img class="avatar" src="${avatar}" />
+//        <div class="health">health: <b> ${health} </b></div>
+//        <div class="dice-container">    
+//            ${diceHtml}
+//        </div>
+//    </div>`;
+// }
+
+// renderCharacter(hero);
+// renderCharacter(monster);
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Use the Array Constructor */
+
+
+
+
+
+
+
+
+
+
+
+
+
+function getDiceRollArray(diceCount) {
+/* Challenge: 
+1. Instead of the for loop, use an Array constructor to 
+  create a new array which is diceCount length.
+2. Fill the new array with zeros as its initial state.
+3. Map over the new array directly (no need to declare a 
+  new variable) and return a random number from 1-6 in 
+  each element.
+4. Delete all unnecessary code.
+*/   
+
+/* My Solution */
+
+// const newDiceRolls = new Array(6).fill('0').map(function(number){
+//    return newDiceRolls.push(Math.floor(Math.random() * 6) + 1);
+//       return `<div class="dice">${number}</div>`
+// })
+// return newDiceRolls
+
+
+   /* Tom's Solution */
+
+   return new Array(diceCount).fill(0).map(function(){
+      return Math.floor(Math.random() * 6) + 1
+   })
 }
 
-// Call function with a diceCount of 3
-// like this: 
+function getDiceHtml(diceCount) {
+   return getDiceRollArray(diceCount).map(function(num){ 
+       return  `<div class="dice">${num}</div>`
+   }).join('')
+}
 
-getDiceRollArray(3)
-   
 const hero = {
    elementId: "hero",
    name: "Wizard",
    avatar: "img/wizard.png",
    health: 60,
-   diceRoll: [3, 1, 4], 
    diceCount: 3
 }
 
@@ -418,23 +606,19 @@ const monster = {
    name: "Orc",
    avatar: "img/orc.png",
    health: 10,
-   diceRoll: [6],
    diceCount: 1
 }
 
 function renderCharacter(data) {
-   const { elementId, name, avatar, health, diceRoll, diceCount } = data;
-
-   const diceHtml = diceRoll.map(function(num){ 
-       return  `<div class="dice">${num}</div>`
-   }).join('')
+   const { elementId, name, avatar, health, diceCount } = data;
+   const diceHtml = getDiceHtml(diceCount)
 
    document.getElementById(elementId).innerHTML =
        `<div class="character-card">
            <h4 class="name"> ${name} </h4>
            <img class="avatar" src="${avatar}" />
            <div class="health">health: <b> ${health} </b></div>
-           <div class="dice-container">
+           <div class="dice-container">    
                ${diceHtml}
            </div>
        </div>`;
