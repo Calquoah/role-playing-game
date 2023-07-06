@@ -737,74 +737,74 @@ Challenge
 
 
 
-function getDiceRollArray(diceCount) { 
-   return new Array(diceCount).fill(0).map(function(){
-   return Math.floor(Math.random() * 6) + 1
-   });   
-}
+// function getDiceRollArray(diceCount) { 
+//    return new Array(diceCount).fill(0).map(function(){
+//    return Math.floor(Math.random() * 6) + 1
+//    });   
+// }
 
-function getDiceHtml(diceCount) {
-   return getDiceRollArray(diceCount).map(function(num){ 
-       return  `<div class="dice">${num}</div>`
-   }).join('')
-}
+// function getDiceHtml(diceCount) {
+//    return getDiceRollArray(diceCount).map(function(num){ 
+//        return  `<div class="dice">${num}</div>`
+//    }).join('')
+// }
 
-const hero = {
-   elementId: "hero",
-   name: "Wizard",
-   avatar: "img/wizard.png",
-   health: 60,
-   diceCount: 3
-}
+// const hero = {
+//    elementId: "hero",
+//    name: "Wizard",
+//    avatar: "img/wizard.png",
+//    health: 60,
+//    diceCount: 3
+// }
 
-const monster = {
-   elementId: "monster",
-   name: "Orc",
-   avatar: "img/orc.png",
-   health: 10,
-   diceCount: 1
-}
+// const monster = {
+//    elementId: "monster",
+//    name: "Orc",
+//    avatar: "img/orc.png",
+//    health: 10,
+//    diceCount: 1
+// }
 
-/*
-Challenge
-1. Create a method called getCharacterHtml that performs the 
-  same tasks as our current renderCharacter function.
-2. Create two new instances of Character. One for a hero, 
-  called "wizard", and one for a monster, called "orc". 
-  Render both of them on the page.
-3. Delete both the old renderCharacter function and the two 
-  lines of code at the bottom of the page which invoke that 
-  function.
-*/
+// /*
+// Challenge
+// 1. Create a method called getCharacterHtml that performs the 
+//   same tasks as our current renderCharacter function.
+// 2. Create two new instances of Character. One for a hero, 
+//   called "wizard", and one for a monster, called "orc". 
+//   Render both of them on the page.
+// 3. Delete both the old renderCharacter function and the two 
+//   lines of code at the bottom of the page which invoke that 
+//   function.
+// */
 
-function Character(data) {
-   this.elementId = data.elementId;
-   this.name = data.name;
-   this.avatar = data.avatar;
-   this.health = data.health;
-   this.diceCount = data.diceCount;
+// function Character(data) {
+//    this.elementId = data.elementId;
+//    this.name = data.name;
+//    this.avatar = data.avatar;
+//    this.health = data.health;
+//    this.diceCount = data.diceCount;
    
-   this.getCharacterHtml = function() {
-      const { elementId, name, avatar, health, diceCount } = this;
-      const diceHtml = getDiceHtml(diceCount)
+//    this.getCharacterHtml = function() {
+//       const { elementId, name, avatar, health, diceCount } = this;
+//       const diceHtml = getDiceHtml(diceCount)
    
-      document.getElementById(elementId).innerHTML =
-            `<div class="character-card">
-               <h4 class="name"> ${name} </h4>
-               <img class="avatar" src="${avatar}" />
-               <div class="health">health: <b> ${health} </b></div>
-               <div class="dice-container">    
-                  ${diceHtml}
-               </div>
-            </div>`;
-   }
-}
+//       document.getElementById(elementId).innerHTML =
+//             `<div class="character-card">
+//                <h4 class="name"> ${name} </h4>
+//                <img class="avatar" src="${avatar}" />
+//                <div class="health">health: <b> ${health} </b></div>
+//                <div class="dice-container">    
+//                   ${diceHtml}
+//                </div>
+//             </div>`;
+//    }
+// }
 
-const wizard = new Character(hero)
-const orc = new Character(monster)
+// const wizard = new Character(hero)
+// const orc = new Character(monster)
 
-wizard.getCharacterHtml()
-orc.getCharacterHtml()
+// wizard.getCharacterHtml()
+// orc.getCharacterHtml()
 
 
 
@@ -825,3 +825,393 @@ orc.getCharacterHtml()
 
 // renderCharacter(hero);
 // renderCharacter(monster);
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Simplify Constructor Function with Object.assign */
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function getDiceRollArray(diceCount) {  
+//    return new Array(diceCount).fill(0).map(function(){
+//    return Math.floor(Math.random() * 6) + 1
+//    });   
+// }
+
+// function getDiceHtml(diceCount) {
+//    return getDiceRollArray(diceCount).map(function(num){ 
+//        return  `<div class="dice">${num}</div>`
+//    }).join('')
+// }
+
+// const hero = {
+//    elementId: "hero",
+//    name: "Wizard",
+//    avatar: "img/wizard.png",
+//    health: 60,
+//    diceCount: 3
+// }
+
+// const monster = {
+//    elementId: "monster",
+//    name: "Orc",
+//    avatar: "img/orc.png",
+//    health: 10,
+//    diceCount: 1
+// }
+
+// function Character(data) {
+// /*CHALLENGE
+// -Use what you learned in the previous scrim to
+// remove the following 5 lines of code
+// */
+//    // this.elementId = data.elementId
+//    // this.name = data.name
+//    // this.avatar = data.avatar
+//    // this.health = data.health
+//    // this.diceCount = data.diceCount
+//    Object.assign(this, data)
+//    this.getCharacterHtml = function () {
+//        const { elementId, name, avatar, health, diceCount } = this;      
+//        let diceHtml = getDiceHtml(diceCount);
+       
+//        document.getElementById(elementId).innerHTML = `
+//            <div class="character-card">
+//                <h4 class="name"> ${name} </h4>
+//                <img class="avatar" src="${avatar}" />
+//                <div class="health">health: <b> ${health} </b></div>
+//                <div class="dice-container">
+//                    ${diceHtml}
+//                </div>
+//            </div>`;
+//    }
+   
+// }
+
+// const wizard = new Character(hero)
+// wizard.getCharacterHtml()
+
+// const orc = new Character(monster)
+// orc.getCharacterHtml()
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Simplify the Constructor Function Part II */
+
+
+
+
+
+
+
+
+
+
+
+// function getDiceRollArray(diceCount) {   
+//    return new Array(diceCount).fill(0).map(function(){
+//    return Math.floor(Math.random() * 6) + 1
+//    });   
+// }
+
+// // CHALLENGE 
+// // 1. Add this function as a method of our character constructor
+// // 2. Make a small change to getCharacterHtml to make the app work again
+
+// // function getDiceHtml(diceCount) {
+// //    return getDiceRollArray(diceCount).map(function(num){ 
+// //        return  `<div class="dice">${num}</div>`
+// //    }).join('')
+// // }
+
+// const hero = {
+//    elementId: "hero",
+//    name: "Wizard",
+//    avatar: "img/wizard.png",
+//    health: 60,
+//    diceCount: 3
+// }
+
+// const monster = {
+//    elementId: "monster",
+//    name: "Orc",
+//    avatar: "img/orc.png",
+//    health: 10,
+//    diceCount: 1
+// }
+
+// function Character(data) {
+//    Object.assign(this, data)
+
+//    this.getDiceHtml = function(diceCount) {
+//    return getDiceRollArray(diceCount).map(function(num){ 
+//        return  `<div class="dice">${num}</div>`
+//    }).join('')
+//    }
+
+//    this.getCharacterHtml = function () {
+//        const { elementId, name, avatar, health, diceCount } = this;      
+//        let diceHtml = this.getDiceHtml(diceCount);
+       
+//        document.getElementById(elementId).innerHTML = `
+//            <div class="character-card">
+//                <h4 class="name"> ${name} </h4>
+//                <img class="avatar" src="${avatar}" />
+//                <div class="health">health: <b> ${health} </b></div>
+//                <div class="dice-container">
+//                    ${diceHtml}
+//                </div>
+//            </div>`;
+//    }  
+// }
+
+// const wizard = new Character(hero)
+// wizard.getCharacterHtml()
+
+// const orc = new Character(monster)
+// orc.getCharacterHtml()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Refactor the Constructor Function
+
+Instead of setting innherHtml in the constructor function, 
+make it so that you just return the Html string 
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function getDiceRollArray(diceCount) {  
+//     return new Array(diceCount).fill(0).map(function(){
+//     return Math.floor(Math.random() * 6) + 1
+//     });   
+// }
+
+// const hero = {
+//     elementId: "hero",
+//     name: "Wizard",
+//     avatar: "images/wizard.png",
+//     health: 60,
+//     diceCount: 3
+// }
+
+// const monster = {
+//     elementId: "monster",
+//     name: "Orc",
+//     avatar: "images/orc.png",
+//     health: 10,
+//     diceCount: 1
+// }
+
+// function Character(data) {
+//     Object.assign(this, data)
+    
+//      this.getDiceHtml = function(diceCount) {
+//         return getDiceRollArray(diceCount).map(function(num){ 
+//             return  `<div class="dice">${num}</div>`
+//         }).join('')
+//     }
+
+//     this.getCharacterHtml = function () {
+//         const { elementId, name, avatar, health, diceCount } = this;      
+//         let diceHtml = this.getDiceHtml(diceCount);
+        
+// /*
+// CHALLENGE
+// - instead of setting the innerHTML from right here in the contructor,
+// make it so that we just return that literal string of HTML
+// - This will break the app. Don't worry!
+// */
+//       /* Solution */
+
+// //   document.getElementById(elementId).innerHTML = 
+      
+//       return `
+//             <div class="character-card">
+//                 <h4 class="name"> ${name} </h4>
+//                 <img class="avatar" src="${avatar}" />
+//                 <div class="health">health: <b> ${health} </b></div>
+//                 <div class="dice-container">
+//                     ${diceHtml}
+//                 </div>
+//             </div>`;
+
+//     }  
+// }
+
+// const wizard = new Character(hero)
+// wizard.getCharacterHtml()
+
+// const orc = new Character(monster)
+// orc.getCharacterHtml()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Fix the app so the Wizard and Orc render again */
+
+
+
+
+
+
+
+
+
+
+
+
+
+function getDiceRollArray(diceCount) {
+   return new Array(diceCount).fill(0).map(function(){
+   return Math.floor(Math.random() * 6) + 1
+   });   
+}
+
+const hero = {
+   elementId: "hero",
+   name: "Wizard",
+   avatar: "img/wizard.png",
+   health: 60,
+   diceCount: 3
+}
+
+const monster = {
+   elementId: "monster",
+   name: "Orc",
+   avatar: "img/orc.png",
+   health: 10,
+   diceCount: 1
+}
+
+function Character(data) {
+   Object.assign(this, data)
+   
+    this.getDiceHtml = function(diceCount) {
+       return getDiceRollArray(diceCount).map(function(num){ 
+           return  `<div class="dice">${num}</div>`
+       }).join('')
+   }
+
+   this.getCharacterHtml = function () {
+       const { elementId, name, avatar, health, diceCount } = this;      
+       let diceHtml = this.getDiceHtml(diceCount);
+       
+          return `
+           <div class="character-card">
+               <h4 class="name"> ${name} </h4>
+               <img class="avatar" src="${avatar}" />
+               <div class="health">health: <b> ${health} </b></div>
+               <div class="dice-container">
+                   ${diceHtml}
+               </div>
+           </div>`;
+   }  
+}
+
+//CHALLENGE
+// - Make the wizard and orc render
+// - check hint.md if you need a hand 
+
+// const wizard = new Character(hero)
+// // wizard.getCharacterHtml()
+// document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml()
+
+// // console.log(wizard.getCharacterHtml())
+
+// const orc = new Character(monster)
+// // orc.getCharacterHtml()
+// document.getElementById(orc.elementId).innerHTML = orc.getCharacterHtml()
+
+
+
+/* MINI CHALLENGE */
+// 1 Create one render() function that calls both wizard and orc 
+//  so we can control when they render. 
+// 2 call the function.
+
+const wizard = new Character(hero)
+const orc = new Character(monster)
+
+function render() {
+   document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml()
+   document.getElementById(orc.elementId).innerHTML = orc.getCharacterHtml()
+}
+
+render()
+
+// const wizard = new Character(hero)
+// document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml()
+
+// const orc = new Character(monster)
+// document.getElementById(orc.elementId).innerHTML = orc.getCharacterHtml()
+
+
+
+
