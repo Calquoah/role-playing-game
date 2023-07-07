@@ -1347,13 +1347,14 @@ that */
 
 
 
+import characterData from "./data.js";
+
 
 function getDiceRollArray(diceCount) {  
    return new Array(diceCount).fill(0).map(function(){
    return Math.floor(Math.random() * 6) + 1
    });   
 }
-
 
 
 function Character(data) {
@@ -1384,6 +1385,82 @@ function Character(data) {
 function render() {
    document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml();
    document.getElementById(orc.elementId).innerHTML = orc.getCharacterHtml();
+}
+
+const wizard = new Character(characterData.hero)
+const orc = new Character(characterData.monster)
+render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Export getDiceRollArray() into another file */
+
+
+
+
+
+
+
+
+
+
+import characterData from '/data.js'
+import {getDiceRollArray} from '/utils.js'
+
+/*
+Challenge
+1. Create a file called 'utils.js'.
+2. Cut and paste the getDiceRollArray() function into it.
+3. Decide if this should be a default or named export. Think
+   about this!!
+4. Import back it into index.js
+*/
+
+// function getDiceRollArray(diceCount) {  
+//     return new Array(diceCount).fill(0).map(function(){
+//     return Math.floor(Math.random() * 6) + 1
+//     });   
+// }
+
+function Character(data) {
+    Object.assign(this, data)
+    
+    this.getDiceHtml = function(diceCount) {
+        return getDiceRollArray(diceCount).map(function(num){ 
+            return  `<div class="dice">${num}</div>`
+        }).join('')
+    }
+
+    this.getCharacterHtml = function () {
+        const { elementId, name, avatar, health, diceCount } = this;      
+        let diceHtml = this.getDiceHtml(diceCount);
+        
+           return `
+            <div class="character-card">
+                <h4 class="name"> ${name} </h4>
+                <img class="avatar" src="${avatar}" />
+                <div class="health">health: <b> ${health} </b></div>
+                <div class="dice-container">
+                    ${diceHtml}
+                </div>
+            </div>`;
+    }  
+}
+
+function render() {
+    document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml();
+    document.getElementById(orc.elementId).innerHTML = orc.getCharacterHtml();
 }
 
 const wizard = new Character(characterData.hero)
