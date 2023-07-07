@@ -1492,54 +1492,210 @@ that */
 
 
 
-import characterData from '/data.js'
-// import { getDiceRollArray } from './utils'; /* Need to change this location to Character.js because we're using it in there */
-import Character from './Character.js';
+// import characterData from '/data.js'
+// // import { getDiceRollArray } from './utils'; /* Need to change this location to Character.js because we're using it in there */
+// import Character from './Character.js';
 
-/*
-Challenge
-1. Create a file called 'Character.js'
-2. Cut and paste the constructor function into it.
-3. Decide if this should be a default or named export. Think
-   about this!!
-4. Import it into index.js
-5. You will hit a problem! Solve the problem!
-*/
+// /*
+// Challenge
+// 1. Create a file called 'Character.js'
+// 2. Cut and paste the constructor function into it.
+// 3. Decide if this should be a default or named export. Think
+//    about this!!
+// 4. Import it into index.js
+// 5. You will hit a problem! Solve the problem!
+// */
 
-// function Character(data) {
-//     Object.assign(this, data)
+// // function Character(data) {
+// //     Object.assign(this, data)
     
-//     this.getDiceHtml = function(diceCount) {
-//         return getDiceRollArray(diceCount).map(function(num){ 
-//             return  `<div class="dice">${num}</div>`
-//         }).join('')
-//     }
+// //     this.getDiceHtml = function(diceCount) {
+// //         return getDiceRollArray(diceCount).map(function(num){ 
+// //             return  `<div class="dice">${num}</div>`
+// //         }).join('')
+// //     }
 
-//     this.getCharacterHtml = function () {
-//         const { elementId, name, avatar, health, diceCount } = this;      
-//         let diceHtml = this.getDiceHtml(diceCount);
+// //     this.getCharacterHtml = function () {
+// //         const { elementId, name, avatar, health, diceCount } = this;      
+// //         let diceHtml = this.getDiceHtml(diceCount);
         
-//            return `
-//             <div class="character-card">
-//                 <h4 class="name"> ${name} </h4>
-//                 <img class="avatar" src="${avatar}" />
-//                 <div class="health">health: <b> ${health} </b></div>
-//                 <div class="dice-container">
-//                     ${diceHtml}
-//                 </div>
-//             </div>`;
-//     }  
+// //            return `
+// //             <div class="character-card">
+// //                 <h4 class="name"> ${name} </h4>
+// //                 <img class="avatar" src="${avatar}" />
+// //                 <div class="health">health: <b> ${health} </b></div>
+// //                 <div class="dice-container">
+// //                     ${diceHtml}
+// //                 </div>
+// //             </div>`;
+// //     }  
+// // }
+
+// function render() {
+//     document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml();
+//     document.getElementById(orc.elementId).innerHTML = orc.getCharacterHtml();
 // }
 
-function render() {
+// const wizard = new Character(characterData.hero)
+// const orc = new Character(characterData.monster)
+// render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Good Housekeeping */
+
+
+
+
+
+
+
+
+
+
+
+
+// import characterData from '/data.js'
+// import Character from '/Character.js'
+
+// function render() {
+//     document.getElementById('hero').innerHTML = wizard.getCharacterHtml();
+//     document.getElementById('monster').innerHTML = orc.getCharacterHtml();
+// }
+
+// const wizard = new Character(characterData.hero)
+// const orc = new Character(characterData.monster)
+// render()
+
+
+/* We changed these lines of code: 
+
     document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml();
     document.getElementById(orc.elementId).innerHTML = orc.getCharacterHtml();
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Wire Up the Attack Button */
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import characterData from './data.js'
+// import Character from './Character.js'
+
+// /*
+// CHALLENGE:
+// 1 Set up a function called attack()
+// 2 Wire up the attack button so when pressed, the 
+// function logs out 'attack button working!'
+// 3 Do this without declaring any new variables
+// **hint.md for help!!**
+// */
+
+
+// // An Example
+
+// // modalCloseBtn.addEventListener('click', function(){
+// //    modal.style.display = 'none'
+// // })
+
+// function attack() {
+//    console.log('attack button is working!')
+// }
+
+// function render() {
+//     document.getElementById('hero').innerHTML = wizard.getCharacterHtml();
+//     document.getElementById('monster').innerHTML = orc.getCharacterHtml();
+// }
+
+// document.getElementById('attack-button').addEventListener('click', attack)
+
+// const wizard = new Character(characterData.hero)
+// const orc = new Character(characterData.monster)
+// render()
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Launch the First Attack */
+
+
+
+
+
+
+
+
+import characterData from './data.js'
+import Character from './Character.js'
+
+/*
+CHALLENGE
+1. Make the attack button trigger a dice roll for both
+wizard and orc (which method on the constructor does that??)
+2. Make sure the new dice score shows in the app
+**hint.md for help!!**
+*/
+
+function attack(){
+    render()
 }
+
+function render() {
+    document.getElementById('hero').innerHTML = wizard.getCharacterHtml();
+    document.getElementById('monster').innerHTML = orc.getCharacterHtml();
+}
+
+document.getElementById("attack-button").addEventListener('click', attack)
 
 const wizard = new Character(characterData.hero)
 const orc = new Character(characterData.monster)
 render()
-
-
-
-
