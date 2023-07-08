@@ -4,14 +4,16 @@ const characterData = {
        name: "Wizard",
        avatar: "img/wizard.png",
        health: 60,
-       diceCount: 3
+       diceCount: 3,
+       currentDiceScore: []
     }, 
     monster:  {
     //    elementId: "monster", /* Look for what we did with this code in index.js
        name: "Orc",
        avatar: "img/orc.png",
        health: 10,
-       diceCount: 1
+       diceCount: 1,
+       currentDiceScore: []
     }
  }
 
