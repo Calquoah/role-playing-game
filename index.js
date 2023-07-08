@@ -45,6 +45,8 @@ like this: */
 // `
 
 
+
+
 /* Writing Cleaner Code */
 
 
@@ -63,6 +65,10 @@ like this: */
 //    health: 10,
 //    diceRoll: 4
 // }
+
+
+
+
 
 
 // /* Challenge 3: The renderCharacter function */
