@@ -1729,14 +1729,125 @@ that */
 
 
 
+// import characterData from './data.js'
+// import Character from './Character.js'
+
+// function attack(){
+//     wizard.getDiceHtml()
+//     orc.getDiceHtml()
+//     render()
+// }
+
+// function render() {
+//     document.getElementById('hero').innerHTML = wizard.getCharacterHtml();
+//     document.getElementById('monster').innerHTML = orc.getCharacterHtml();
+// }
+
+// document.getElementById("attack-button").addEventListener('click', attack)
+
+// const wizard = new Character(characterData.hero)
+// const orc = new Character(characterData.monster)
+// render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Inflicting Damage */
+
+
+
+
+
+
+
+
+
+
+
+
+// import characterData from './data.js'
+// import Character from './Character.js'
+
+// function attack() {
+//     wizard.getDiceHtml()
+//     orc.getDiceHtml()
+
+//     /* Solution */
+
+//     wizard.takeDamage()
+//     orc.takeDamage()
+//     render()
+// }
+
+
+// function render() {
+//     document.getElementById('hero').innerHTML = wizard.getCharacterHtml();
+//     document.getElementById('monster').innerHTML = orc.getCharacterHtml();
+// }
+
+// document.getElementById("attack-button").addEventListener('click', attack)
+
+// const wizard = new Character(characterData.hero)
+// const orc = new Character(characterData.monster)
+// render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Inflicting Damage: Part 2 */
+
+
+
+
+
+
+
+
+
+
+
+
 import characterData from './data.js'
 import Character from './Character.js'
 
-function attack(){
+
+/*CHALLENGE
+1. Think what data we need to pass to our new
+takeDamage method.
+2. Add that data as an argument each time we call
+takeDamage below.
+3. In the takeDamage method, take in the data as a 
+parameter called 'attackScoreArray' and log it out.
+**hint.md for help!** 
+*/
+
+function attack() {
     wizard.getDiceHtml()
     orc.getDiceHtml()
+    wizard.takeDamage(orc.currentDiceScore) // Because we need to pass the 
+    orc.takeDamage(wizard.currentDiceScore) // score of the damage inflicted on the opponent
     render()
 }
+
 
 function render() {
     document.getElementById('hero').innerHTML = wizard.getCharacterHtml();
