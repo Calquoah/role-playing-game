@@ -1826,35 +1826,212 @@ that */
 
 
 
+
+// import characterData from './data.js'
+// import Character from './Character.js'
+
+
+// /*CHALLENGE
+// 1. Think what data we need to pass to our new
+// takeDamage method.
+// 2. Add that data as an argument each time we call
+// takeDamage below.
+// 3. In the takeDamage method, take in the data as a 
+// parameter called 'attackScoreArray' and log it out.
+// **hint.md for help!** 
+// */
+
+// function attack() {
+//     wizard.getDiceHtml()
+//     orc.getDiceHtml()
+//     wizard.takeDamage(orc.currentDiceScore) // Because we need to pass the 
+//     orc.takeDamage(wizard.currentDiceScore) // score of the damage inflicted on the opponent
+//     render()
+// }
+
+
+// function render() {
+//     document.getElementById('hero').innerHTML = wizard.getCharacterHtml();
+//     document.getElementById('monster').innerHTML = orc.getCharacterHtml();
+// }
+
+// document.getElementById("attack-button").addEventListener('click', attack)
+
+// const wizard = new Character(characterData.hero)
+// const orc = new Character(characterData.monster)
+// render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Calling endGame() when either character is dead */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import characterData from './data.js'
+// import Character from './Character.js'
+
+// /*
+// CHALLENGE
+// 1. Inside attack(), check if either character is dead.
+// If they are, call a new function called endGame().
+// 2. Set up the new function endGame() and have it 
+// log out "the game is over".
+// */
+
+// function attack() {
+//     wizard.getDiceHtml()
+//     orc.getDiceHtml()
+//     wizard.takeDamage(orc.currentDiceScore)
+//     orc.takeDamage(wizard.currentDiceScore)
+//     render()
+   
+   
+//     /* My Solution */
+
+//    /* if (orc.dead === true) {
+//       endGame()
+//    } else if (wizard.dead === true) {
+//       endGame()
+//    } */
+
+   
+//    /* Tom's Solution */
+
+   
+//    /* if (wizard.dead === true || orc.dead === true) {
+//       endGame()
+//    } */
+
+
+//    /* Even better solution */
+
+//    if (wizard.dead || orc.dead) {
+//       endGame()
+//    }
+// }
+
+
+// function endGame() {
+//    console.log("The game is over")
+// }
+
+
+// document.getElementById("attack-button").addEventListener('click', attack)
+
+// function render() {
+//     document.getElementById('hero').innerHTML = wizard.getCharacterHtml()
+//     document.getElementById('monster').innerHTML = orc.getCharacterHtml()
+// }
+
+// const wizard = new Character(characterData.hero)
+// const orc = new Character(characterData.monster)
+// render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: The Ternary Operator */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import characterData from './data.js'
 import Character from './Character.js'
-
-
-/*CHALLENGE
-1. Think what data we need to pass to our new
-takeDamage method.
-2. Add that data as an argument each time we call
-takeDamage below.
-3. In the takeDamage method, take in the data as a 
-parameter called 'attackScoreArray' and log it out.
-**hint.md for help!** 
-*/
 
 function attack() {
     wizard.getDiceHtml()
     orc.getDiceHtml()
-    wizard.takeDamage(orc.currentDiceScore) // Because we need to pass the 
-    orc.takeDamage(wizard.currentDiceScore) // score of the damage inflicted on the opponent
+    wizard.takeDamage(orc.currentDiceScore)
+    orc.takeDamage(wizard.currentDiceScore)
     render()
+    if(wizard.dead || orc.dead){
+        endGame()
+    }
 }
 
+/*CHALLENGE
+1. Inside endGame(), create a const called endMessage. 
+2. Figure out how to set endMessage to say either "The 
+Wizard Wins", "The Orc is Victorious", or "No victors - 
+all creatures are dead", depending on the health scores 
+of the characters.
+3. Log out endMessage
+*/
 
-function render() {
-    document.getElementById('hero').innerHTML = wizard.getCharacterHtml();
-    document.getElementById('monster').innerHTML = orc.getCharacterHtml();
+function endGame(){
+   
+   /* My Solution */
+   
+   /* const endMessage = wizard.dead ? 'The Orc is Victorious' 
+   : orc.dead ? 'The Wizard Wins'
+   : 'No victors - all creatures are dead' */
+
+   /* Tom's Solution */
+
+   const endMessage = wizard.health === 0 && orc.health === 0 ? 'No victors - all creatures are dead' 
+   : wizard.health > 0 ? 'The Wizard Wins' 
+   : 'The Orc is Victorious'
+    
+   console.log(endMessage)
 }
 
 document.getElementById("attack-button").addEventListener('click', attack)
+
+function render() {
+    document.getElementById('hero').innerHTML = wizard.getCharacterHtml()
+    document.getElementById('monster').innerHTML = orc.getCharacterHtml()
+}
 
 const wizard = new Character(characterData.hero)
 const orc = new Character(characterData.monster)
