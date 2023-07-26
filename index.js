@@ -1986,6 +1986,88 @@ that */
 
 
 
+// import characterData from './data.js'
+// import Character from './Character.js'
+
+// function attack() {
+//     wizard.getDiceHtml()
+//     orc.getDiceHtml()
+//     wizard.takeDamage(orc.currentDiceScore)
+//     orc.takeDamage(wizard.currentDiceScore)
+//     render()
+//     if(wizard.dead || orc.dead){
+//         endGame()
+//     }
+// }
+
+// /*CHALLENGE
+// 1. Inside endGame(), create a const called endMessage. 
+// 2. Figure out how to set endMessage to say either "The 
+// Wizard Wins", "The Orc is Victorious", or "No victors - 
+// all creatures are dead", depending on the health scores 
+// of the characters.
+// 3. Log out endMessage
+// */
+
+// function endGame(){
+   
+//    /* My Solution */
+   
+//    /* const endMessage = wizard.dead ? 'The Orc is Victorious' 
+//    : orc.dead ? 'The Wizard Wins'
+//    : 'No victors - all creatures are dead' */
+
+//    /* Tom's Solution */
+
+//    const endMessage = wizard.health === 0 && orc.health === 0 ? 'No victors - all creatures are dead' 
+//    : wizard.health > 0 ? 'The Wizard Wins' 
+//    : 'The Orc is Victorious'
+    
+//    console.log(endMessage)
+// }
+
+// document.getElementById("attack-button").addEventListener('click', attack)
+
+// function render() {
+//     document.getElementById('hero').innerHTML = wizard.getCharacterHtml()
+//     document.getElementById('monster').innerHTML = orc.getCharacterHtml()
+// }
+
+// const wizard = new Character(characterData.hero)
+// const orc = new Character(characterData.monster)
+// render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: endGame() Part 2 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import characterData from './data.js'
 import Character from './Character.js'
 
@@ -2001,29 +2083,50 @@ function attack() {
 }
 
 /*CHALLENGE
-1. Inside endGame(), create a const called endMessage. 
-2. Figure out how to set endMessage to say either "The 
-Wizard Wins", "The Orc is Victorious", or "No victors - 
-all creatures are dead", depending on the health scores 
-of the characters.
-3. Log out endMessage
+1. Create a second const in endGame called endEmoji.
+2. Figure out how to set it to hold the emoji "🔮" if the 
+wizard wins, and "☠️" if the orc wins. If both characters 
+are dead use "☠️".
+3. Finally, take the html template string below render it 
+to the screen so it replaces everything else when the game 
+is over.
+`<div class="end-game">
+        <h2>Game Over</h2>
+        <h3>${endMessage}/h3>
+        <p class="end-emoji">${endEmoji}</p>
+    </div>` 
 */
 
 function endGame(){
-   
+   const endMessage = wizard.health === 0 && orc.health === 0 ?
+        "No victors - all creatures are dead" :
+        wizard.health > 0 ? "The Wizard Wins" :
+        "The Orc is Victorious"
+
    /* My Solution */
    
-   /* const endMessage = wizard.dead ? 'The Orc is Victorious' 
-   : orc.dead ? 'The Wizard Wins'
-   : 'No victors - all creatures are dead' */
+   
+   /* const endEmoji = wizard.health === 0 && orc.health === 0 ?
+         "☠️" :
+         wizard.health > 0 ? "🔮" :
+         "☠️" */
 
+   
    /* Tom's Solution */
 
-   const endMessage = wizard.health === 0 && orc.health === 0 ? 'No victors - all creatures are dead' 
-   : wizard.health > 0 ? 'The Wizard Wins' 
-   : 'The Orc is Victorious'
+   
+   const endEmoji = wizard.health > 0 ? "🔮" : "☠️"
+
+   
+   /* Now, to render the html string, do this: */
+
+   document.body.innerHTML = 
+      `<div class="end-game">
+         <h2>Game Over</h2>
+         <h3>${endMessage}</h3>
+         <p class="end-emoji">${endEmoji}</p>
+      </div>`
     
-   console.log(endMessage)
 }
 
 document.getElementById("attack-button").addEventListener('click', attack)
