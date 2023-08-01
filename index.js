@@ -2068,74 +2068,522 @@ that */
 
 
 
+
+// import characterData from './data.js'
+// import Character from './Character.js'
+
+
+// function attack() {
+//     wizard.getDiceHtml()
+//     orc.getDiceHtml()
+//     wizard.takeDamage(orc.currentDiceScore)
+//     orc.takeDamage(wizard.currentDiceScore)
+//     render()
+//     if(wizard.dead || orc.dead){
+//         endGame()
+//     }
+// }
+
+// /*CHALLENGE
+// 1. Create a second const in endGame called endEmoji.
+// 2. Figure out how to set it to hold the emoji "🔮" if the 
+// wizard wins, and "☠️" if the orc wins. If both characters 
+// are dead use "☠️".
+// 3. Finally, take the html template string below render it 
+// to the screen so it replaces everything else when the game 
+// is over.
+// `<div class="end-game">
+//         <h2>Game Over</h2>
+//         <h3>${endMessage}/h3>
+//         <p class="end-emoji">${endEmoji}</p>
+//     </div>` 
+// */
+
+// function endGame(){
+//    const endMessage = wizard.health === 0 && orc.health === 0 ?
+//         "No victors - all creatures are dead" :
+//         wizard.health > 0 ? "The Wizard Wins" :
+//         "The Orc is Victorious"
+
+//    /* My Solution */
+   
+   
+//    /* const endEmoji = wizard.health === 0 && orc.health === 0 ?
+//          "☠️" :
+//          wizard.health > 0 ? "🔮" :
+//          "☠️" */
+
+   
+//    /* Tom's Solution */
+
+   
+//    const endEmoji = wizard.health > 0 ? "🔮" : "☠️"
+
+   
+//    /* Now, to render the html string, do this: */
+
+//    document.body.innerHTML = 
+//       `<div class="end-game">
+//          <h2>Game Over</h2>
+//          <h3>${endMessage}</h3>
+//          <p class="end-emoji">${endEmoji}</p>
+//       </div>`
+    
+// }
+
+// document.getElementById("attack-button").addEventListener('click', attack)
+
+// function render() {
+//     document.getElementById('hero').innerHTML = wizard.getCharacterHtml()
+//     document.getElementById('monster').innerHTML = orc.getCharacterHtml()
+// }
+
+// const wizard = new Character(characterData.hero)
+// const orc = new Character(characterData.monster)
+// render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Adding More Monsters */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import characterData from './data.js'
+// import Character from './Character.js'
+
+// let monstersArray = ["orc", "demon", "goblin"];
+
+// /*
+// Challenge
+// 1. Create a function called getNewMonster.
+// 2. Write logic inside the function that takes the first 
+// monster from monstersArray and extracts that monster's 
+// data from characterData.
+// 3. Save that data to a new const called nextMonsterData.
+// **hint.md for help!!**
+// */
+
+
+// function getNewMonster() {
+//    const nextMonsterData = characterData[monstersArray.shift()]
+//    //characterData[orc]
+// }
+
+
+// function attack() {
+//     wizard.getDiceHtml()
+//     orc.getDiceHtml()
+//     wizard.takeDamage(orc.currentDiceScore)
+//     orc.takeDamage(wizard.currentDiceScore)
+//     render()
+    
+//         if(wizard.dead || orc.dead){
+//             endGame()
+//         }      
+// }
+
+// function endGame() {
+//     const endMessage = wizard.health === 0 && orc.health === 0 ?
+//         "No victors - all creatures are dead" :
+//         wizard.health > 0 ? "The Wizard Wins" :
+//             "The Orc is Victorious"
+
+//     const endEmoji = wizard.health > 0 ? "🔮" : "☠️"
+//     document.body.innerHTML = `
+//         <div class="end-game">
+//             <h2>Game Over</h2> 
+//             <h3>${endMessage}</h3>
+//             <p class="end-emoji">${endEmoji}</p>
+//         </div>
+//         `
+// }
+
+// document.getElementById("attack-button").addEventListener('click', attack)
+
+// function render() {
+//     document.getElementById('hero').innerHTML = wizard.getCharacterHtml()
+//     document.getElementById('monster').innerHTML = orc.getCharacterHtml()
+// }
+
+// const wizard = new Character(characterData.hero)
+// const orc = new Character(characterData.monster)
+// render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Adding More Monsters Part 2 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import characterData from './data.js'
+// import Character from './Character.js'
+
+// /*
+// Challenge
+// 1. Make it so getNewMonster returns a new instance of Character. Think
+// what argument you should be passing. If there are no more monsters in the 
+// array, getNewMonster should return an empty object {}.
+// 2. Down near the bottom of the file, set a new variable "monster" equal 
+// to our new function getNewMonster.
+// 3. Delete any code we no longer need.
+// - The app will still be broken - don't worry for now!
+// **hint.md for help!!**
+
+
+// Part 1
+// - You should use a ternary.
+// - Character takes in some data as a parameter. Which variable 
+//   gives you access to the current monster's data?
+  
+// Part 2
+// - Think! Is this variable going to be updated or remain constant?
+
+
+// */
+
+// let monstersArray = ["orc", "demon", "goblin"]
+
+// function getNewMonster() {
+//     const nextMonsterData = characterData[monstersArray.shift()]
+
+//    return nextMonsterData ? new Character(nextMonsterData) : {}
+
+//    // What this is asking is, does nextMonsterData have a value. 
+//    // Will it return data, if so, return a new instance of Character
+//    // with this data passed in as an argument. 
+//    // If not,then return an empty object {}
+    
+// }
+
+// function attack() {
+//     wizard.getDiceHtml()
+//     orc.getDiceHtml()
+//     wizard.takeDamage(orc.currentDiceScore)
+//     orc.takeDamage(wizard.currentDiceScore)
+//     render()
+    
+//         if(wizard.dead || orc.dead){
+//             endGame()
+//         }      
+// }
+
+// function endGame() {
+//     const endMessage = wizard.health === 0 && orc.health === 0 ?
+//         "No victors - all creatures are dead" :
+//         wizard.health > 0 ? "The Wizard Wins" :
+//             "The Orc is Victorious"
+
+//     const endEmoji = wizard.health > 0 ? "🔮" : "☠️"
+//     document.body.innerHTML = `
+//         <div class="end-game">
+//             <h2>Game Over</h2> 
+//             <h3>${endMessage}</h3>
+//             <p class="end-emoji">${endEmoji}</p>
+//         </div>
+//         `
+// }
+
+// document.getElementById("attack-button").addEventListener('click', attack)
+
+// function render() {
+//     document.getElementById('hero').innerHTML = wizard.getCharacterHtml()
+//     document.getElementById('monster').innerHTML = orc.getCharacterHtml()
+// }
+
+// const wizard = new Character(characterData.hero)
+// // const orc = new Character(characterData.monster) 
+
+// // Deleting this line of code because the orc is now a part of
+// // this array and so we don't need it any longer
+
+// let monster = getNewMonster()
+
+// render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: Back to one Monster
+
+Get the app working again with just one monster 
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import characterData from './data.js'
+// import Character from './Character.js'
+
+// /*
+// Challenge
+// 1. See if you can get the app to work with just 
+// one monster again.
+// **hint.md for help!!**
+// */
+
+
+// let monstersArray = ["orc", "demon", "goblin"]
+
+// function getNewMonster() {
+//     const nextMonsterData = characterData[monstersArray.shift()]
+//     return nextMonsterData ? new Character(nextMonsterData) : {}
+// }
+
+// function attack() {
+//     wizard.getDiceHtml()
+//     monster.getDiceHtml()
+//     wizard.takeDamage(monster.currentDiceScore)
+//     monster.takeDamage(wizard.currentDiceScore)
+//     render()
+    
+//         if(wizard.dead || monster.dead){
+//             endGame()
+//         }      
+// }
+
+// function endGame() {
+//     const endMessage = wizard.health === 0 && monster.health === 0 ?
+//         "No victors - all creatures are dead" :
+//         wizard.health > 0 ? "The Wizard Wins" :
+//             "The Orc is Victorious"
+
+//     const endEmoji = wizard.health > 0 ? "🔮" : "☠️"
+//     document.body.innerHTML = `
+//                 <div class="end-game">
+//                     <h2>Game Over</h2> 
+//                     <h3>${endMessage}</h3>
+//                     <p class="end-emoji">${endEmoji}</p>
+//                 </div>
+//                 `
+// }
+
+// document.getElementById("attack-button").addEventListener('click', attack)
+
+// function render() {
+//     document.getElementById('hero').innerHTML = wizard.getCharacterHtml()
+//     document.getElementById('monster').innerHTML = monster.getCharacterHtml()
+// }
+
+// const wizard = new Character(characterData.hero)
+// let monster = getNewMonster()
+// render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Challenge: When One Monster Dies, Another Takes Its Place */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import characterData from './data.js'
 import Character from './Character.js'
 
-function attack() {
-    wizard.getDiceHtml()
-    orc.getDiceHtml()
-    wizard.takeDamage(orc.currentDiceScore)
-    orc.takeDamage(wizard.currentDiceScore)
-    render()
-    if(wizard.dead || orc.dead){
-        endGame()
-    }
+let monstersArray = ["orc", "demon", "goblin"]
+
+function getNewMonster() {
+    const nextMonsterData = characterData[monstersArray.shift()]
+    return nextMonsterData ? new Character(nextMonsterData) : {}
 }
 
-/*CHALLENGE
-1. Create a second const in endGame called endEmoji.
-2. Figure out how to set it to hold the emoji "🔮" if the 
-wizard wins, and "☠️" if the orc wins. If both characters 
-are dead use "☠️".
-3. Finally, take the html template string below render it 
-to the screen so it replaces everything else when the game 
-is over.
-`<div class="end-game">
-        <h2>Game Over</h2>
-        <h3>${endMessage}/h3>
-        <p class="end-emoji">${endEmoji}</p>
-    </div>` 
+/*
+Challenge
+1. Change the attack function so that when a monster dies, 
+the next monster replaces it. If there are no more monsters,
+call endGame(). 
+2. Make sure that endGame() still gets called if the wizard
+is killed.
+
+Firstly,  check if the wizard is alive. If he is not, call 
+endGame(). If he is, use an "else if" to check if the current 
+monster is still alive.
+If the current monster is dead, you will need to nest an
+if statement and use it to check if there are more monsters
+left in monstersArray (you can tell this from checking its 
+length!)
+If there are more monsters to come, use the function
+getNewMonster() to re-assign a monster to the "monster" variable 
+we created using a "let" down at the bottom of the file.
+If there are no more monsters, call endGame().
+
 */
 
-function endGame(){
-   const endMessage = wizard.health === 0 && orc.health === 0 ?
+function attack() {
+    wizard.getDiceHtml()
+    monster.getDiceHtml()
+    wizard.takeDamage(monster.currentDiceScore)
+    monster.takeDamage(wizard.currentDiceScore)
+    render()
+    
+        /*change the code below this line*/
+      //   if(wizard.dead || monster.dead){
+      //       endGame()
+      //   }    
+
+      /* Firstly, do thi */
+       if(wizard.dead) {
+         endGame()
+       }
+       else if(monster.dead){
+         if(monstersArray.length > 0){
+            monster = getNewMonster()
+            render()
+         }
+         else {
+            endGame()
+         }
+       } 
+   
+}
+
+function endGame() {
+    const endMessage = wizard.health === 0 && monster.health === 0 ?
         "No victors - all creatures are dead" :
         wizard.health > 0 ? "The Wizard Wins" :
-        "The Orc is Victorious"
+            "The Orc is Victorious"
 
-   /* My Solution */
-   
-   
-   /* const endEmoji = wizard.health === 0 && orc.health === 0 ?
-         "☠️" :
-         wizard.health > 0 ? "🔮" :
-         "☠️" */
-
-   
-   /* Tom's Solution */
-
-   
-   const endEmoji = wizard.health > 0 ? "🔮" : "☠️"
-
-   
-   /* Now, to render the html string, do this: */
-
-   document.body.innerHTML = 
-      `<div class="end-game">
-         <h2>Game Over</h2>
-         <h3>${endMessage}</h3>
-         <p class="end-emoji">${endEmoji}</p>
-      </div>`
-    
+    const endEmoji = wizard.health > 0 ? "🔮" : "☠️"
+    document.body.innerHTML = `
+        <div class="end-game">
+            <h2>Game Over</h2> 
+            <h3>${endMessage}</h3>
+            <p class="end-emoji">${endEmoji}</p>
+        </div>
+        `
 }
 
 document.getElementById("attack-button").addEventListener('click', attack)
 
 function render() {
     document.getElementById('hero').innerHTML = wizard.getCharacterHtml()
-    document.getElementById('monster').innerHTML = orc.getCharacterHtml()
+    document.getElementById('monster').innerHTML = monster.getCharacterHtml()
 }
 
 const wizard = new Character(characterData.hero)
-const orc = new Character(characterData.monster)
+let monster = getNewMonster()
 render()
