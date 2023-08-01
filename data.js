@@ -11,7 +11,7 @@ const characterData = {
     //    elementId: "monster", /* Look for what we did with this code in index.js
        name: "Orc",
        avatar: "img/orc.png",
-       health: 10,
+       health: 40,
        diceCount: 1,
        currentDiceScore: []
     }
